@@ -82,6 +82,7 @@ footer {
     font-family: "Libre Franklin", sans-serif;
     gap: 5px;
     margin-left: 2rem;
+    padding-top: 20px;
 }
 
 #a-footer {
