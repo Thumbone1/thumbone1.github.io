@@ -1,8 +1,11 @@
-body {
+* {
   padding: 0;
   margin: 0;
-  background-color: #36464d;
-  color: #ffffffb3;
+}
+
+body {
+  background-color: lightcoral;
+  color: aliceblue;
 }
 
 header {
@@ -16,7 +19,7 @@ header {
   display: inline-block;
   font-family: "Kanit", sans-serif;
   margin: 0 1.2rem;
-  color: aliceblue;
+  color: inherit;
   border-radius: 10%;
   text-decoration: none;
 }
@@ -25,30 +28,36 @@ header {
   display: flex;
   justify-content: center;
   font-family: 'DM Sans', sans-serif;
-
+  padding: 10px;
 }
 
-.btn {
+button {
   width: auto;
   height: auto;
   border: 0;
   padding: 0 1rem;
   margin: 1em;
-  background-color: #ffffffb3;
+  background-color: #80F0F0;
   color: rgb(23, 51, 77);
   font-weight: 900;
   font-size: 1.5rem;
+  border-radius: 10px;
 }
 
 .text-input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 textarea {
     font-family: 'DM Sans', sans-serif;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: aqua;
+    border: none;
+    resize: none;
     
 }
 
