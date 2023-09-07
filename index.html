@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css\main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,12 +30,11 @@
       <a class="header-link" href="https://github.com/Thumbone1" target="_blank"
         >My Github</a
       >
-      <a class="header-link" href="algos.html" target="_blank">My Algo Site</a>
-      <a
-        class="header-link"
-        href="https://www.chess.com/puzzles"
-        target="_blank"
-        >Chess Puzzles</a
+      <a class="header-link" href="algos.html" target="_blank"
+        >Algorithm Visualization</a
+      >
+      <a class="header-link" href="https://www.chess.com" target="_blank"
+        >Chess</a
       >
       <a class="header-link" href="pictureBook.html" target="_blank"
         >My Pictures</a
@@ -49,15 +48,21 @@
       <textarea
         name="username"
         id="username"
-        cols="100"
-        rows="10"
-        placeholder="Notes"
+        cols="20"
+        rows="1"
+        placeholder="username"
+      ></textarea>
+      <textarea
+        name="password"
+        id="password"
+        cols="20"
+        rows="1"
+        placeholder="password"
       ></textarea>
     </div>
     <div class="text-button-container">
-      <button class="btn save">SAVE</button>
-      <button class="btn view">VIEW</button>
-      <button class="btn delete">DELETE</button>
+      <button class="btn submit">SUBMIT</button>
+      <button class="btn signup">SIGN UP</button>
     </div>
 
     <h2 class="heading">Some Text</h2>
@@ -107,8 +112,8 @@
         target="_blank"
         >American</a
       >
-      <img id="american-flag-img" src="./images/usa_flag.png" alt="murca" />
+      <img id="american-flag-img" src="images/usa_flag.png" alt="murca" />
     </footer>
-    <script src="index.js" charset="UTF-8"></script>
+    <script src="javascript\index.js" charset="UTF-8"></script>
   </body>
 </html>
