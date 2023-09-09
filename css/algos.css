@@ -1,18 +1,36 @@
-#page-container {
+#main-container {
   width: 100vw;
-  
+  height: 80vh;
+  display: inline-flex;
+}
+
+#algorithm-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
-#visualization-container {
+#div-container {
   display: flex;
-  width: 100vw;
+  border: solid pink 3px;
+  border-radius: 20px;
+  width: 75vw;
   height: 50vh;
-  gap: 2px;
+  gap: 3px;
   justify-content: center;
   align-items: flex-end;
+}
+
+#sidenav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidenav-button {
+  height: 3rem;
 }
 
 .data {
@@ -22,8 +40,8 @@
 }
 
 #comparing {
-  background-color: #4760E9;
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  background-color: #085c5c;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-
 

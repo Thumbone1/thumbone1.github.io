@@ -20,15 +20,34 @@
       <a class="header-link" href="games.html">My Games</a>
     </header>
     <hr />
-    <div id="page-container">
-      <h1 class="heading">Bubble Sort</h1>
-      <div id="visualization-container"></div>
-      <div id="text-button-container">
-        <button id="start-button">START</button>
-        <button id="reset-button">RESET</button>
+    <div id="main-container">
+      <div id="sidenav">
+        <button
+          class="sidenav-button"
+          id="bubble-button"
+          onclick="initializeBubbleSort()"
+        >
+          Bubble Sort
+        </button>
+        <button
+          class="sidenav-button"
+          id="insertion-button"
+          onclick="initializeInsertionSort()"
+        >
+          Insertion Sort
+        </button>
+        <button class="sidenav-button" onclick="">Quick Sort</button>
+        <button class="sidenav-button" onclick="">Merge Sort</button>
+      </div>
+      <div id="algorithm-container">
+        <h1 class="heading" id="sorting-name">
+          Click on a sorting algo to the left
+        </h1>
+        <div id="div-container"></div>
+        <div id="text-button-container"></div>
       </div>
     </div>
-    <hr>
+
     <footer>
       Made in Norway by an
       <a
@@ -39,6 +58,9 @@
       >
       <img id="american-flag-img" src="images/usa_flag.png" alt="murca" />
     </footer>
-    <script src="javascript\algos.js"></script>
+
+    <script src="javascript/algos.js"></script>
+    <script src="javascript/sortingAlgos/bubbleSort.js"></script>
+    <script src="javascript/sortingAlgos/insertionSort.js"></script>
   </body>
 </html>
