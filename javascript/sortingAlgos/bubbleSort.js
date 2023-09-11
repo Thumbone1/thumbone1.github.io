@@ -6,25 +6,7 @@
  * learned to work with the divs from https://www.geeksforgeeks.org/bubble-sort-visualization-using-javascript/
  */
 
-function swapBubble(div1, div2) {
-  return new Promise((resolve) => {
-    window.requestAnimationFrame(() => {
-      let temp = div1.style.transform;
-      div1.style.transform = div2.style.transform;
-      div2.style.transform = temp;
-
-      setTimeout(() => {
-        divContainer.insertBefore(div2, div1);
-
-        resolve();
-      }, animationTimer);
-    });
-  });
-}
-
 async function bubbleSort() {
-  let divs = document.querySelectorAll(".data");
-
   for (let i = 0; i < divs.length; i++) {
     for (let j = 0; j < divs.length - i - 1; j++) {
       if (userRequestedStop) {
@@ -55,12 +37,28 @@ async function bubbleSort() {
   }
 
   //fancy finish
-  for (let div of divs) {
+  for (let bubbleDiv of divs) {
     await new Promise((resolve) => {
       setTimeout(() => {
-        div.removeAttribute("id");
+        bubbleDiv.removeAttribute("id");
         resolve();
-      }, animationTimer/2);
+      }, animationTimer / 2);
     });
   }
+}
+
+function swapBubble(div1, div2) {
+  return new Promise((resolve) => {
+    window.requestAnimationFrame(() => {
+      let temp = div1.style.transform;
+      div1.style.transform = div2.style.transform;
+      div2.style.transform = temp;
+
+      setTimeout(() => {
+        divContainer.insertBefore(div2, div1);
+
+        resolve();
+      }, animationTimer);
+    });
+  });
 }
