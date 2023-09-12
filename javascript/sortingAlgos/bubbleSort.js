@@ -16,7 +16,7 @@ async function bubbleSort() {
       let div1 = divs[j];
       let div2 = divs[j + 1];
 
-      div1.setAttribute("id", "comparing");
+      div1.setAttribute("id", "selected");
       div2.setAttribute("id", "comparing");
 
       await new Promise((resolve) => {

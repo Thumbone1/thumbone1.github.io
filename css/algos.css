@@ -44,15 +44,45 @@
   background-color: #80f0f0;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  transition: 0.1s all ease;
+  transition: 0.35s all ease;
+}
+
+.data::before {
+  content: "😐";
+  margin-left: 2px;
+  margin-top: 5px;
 }
 
 #comparing {
-  background-color: #085c5c;
+  background-color: #0b3c5bff;
+  border: solid black 1px;
+}
+
+#comparing::before {
+  content: "🤔";
+  margin-left: 2px;
+  margin-top: 5px;
+}
+
+#selected {
+  background-color: #fba497ff;
+  border: solid black 1px;
+}
+
+#selected::before {
+  content: "😦";
+  margin-left: 2px;
+  margin-top: 5px;
 }
 
 #sorted {
   background-color: #f9de7dff;
+}
+
+#sorted::before {
+  content: "😀";
+  margin-left: 2px;
+  margin-top: 5px;
 }
 
 .text-button-container {

@@ -3,8 +3,11 @@ const buttonContainer = document.getElementById("text-button-container");
 const bubbleSortSelectionButton = document.getElementById("bubble-button");
 const insertionSortSelectionButton =
   document.getElementById("insertion-button");
+const selectionSortSelectionButton = document.getElementById(
+  "selectionSort-button"
+);
 const algoTitle = document.getElementById("sorting-name");
-const animationTimer = 200;
+const animationTimer = 300;
 let divs;
 let userRequestedStop = false;
 let startButton;
@@ -18,16 +21,16 @@ function initializeBubbleSort() {
   startButton.addEventListener("click", () => {
     userRequestedStop = false;
     bubbleSort();
+    disallowSelectionButtons();
     startButton.disabled = true;
   });
   resetButton.addEventListener("click", () => {
     clearSortingDivs();
     createSortingDivs();
+    allowSelectionButtons();
     startButton.disabled = false;
     userRequestedStop = true;
   });
-  bubbleSortSelectionButton.disabled = true;
-  insertionSortSelectionButton.disabled = false;
 }
 
 function initializeInsertionSort() {
@@ -38,16 +41,36 @@ function initializeInsertionSort() {
   startButton.addEventListener("click", () => {
     userRequestedStop = false;
     insertionSort();
+    disallowSelectionButtons();
     startButton.disabled = true;
   });
   resetButton.addEventListener("click", () => {
     clearSortingDivs();
     createSortingDivs();
+    allowSelectionButtons();
     startButton.disabled = false;
     userRequestedStop = true;
   });
-  bubbleSortSelectionButton.disabled = false;
-  insertionSortSelectionButton.disabled = true;
+}
+
+function initializeSelectionSort() {
+  clearSortingDivs();
+  createSortingDivs();
+  clearControlButtons();
+  createControlButtons();
+  startButton.addEventListener("click", () => {
+    userRequestedStop = false;
+    selectionSort();
+    disallowSelectionButtons();
+    startButton.disabled = true;
+  });
+  resetButton.addEventListener("click", () => {
+    clearSortingDivs();
+    createSortingDivs();
+    allowSelectionButtons();
+    startButton.disabled = false;
+    userRequestedStop = true;
+  });
 }
 
 function createControlButtons() {
@@ -68,7 +91,7 @@ function createSortingDivs() {
     newDiv.classList.add("data");
     newDiv.style.height = `${Math.max(
       20,
-      Math.floor(Math.random() * divContainer.offsetHeight)
+      Math.floor(Math.random() * divContainer.offsetHeight - 10)
     )}px`;
     newDiv.style.transform = `translate(${i * 33}px)`;
     divContainer.appendChild(newDiv);
@@ -84,6 +107,18 @@ function clearControlButtons() {
   buttonContainer.innerHTML = "";
 }
 
+function disallowSelectionButtons() {
+  selectionSortSelectionButton.disabled = true;
+  bubbleSortSelectionButton.disabled = true;
+  insertionSortSelectionButton.disabled = true;
+}
+
+function allowSelectionButtons() {
+  selectionSortSelectionButton.disabled = false;
+  bubbleSortSelectionButton.disabled = false;
+  insertionSortSelectionButton.disabled = false;
+}
+
 bubbleSortSelectionButton.addEventListener("click", () => {
   userRequestedStop = false;
   initializeBubbleSort();
@@ -94,6 +129,12 @@ insertionSortSelectionButton.addEventListener("click", () => {
   userRequestedStop = false;
   initializeInsertionSort();
   algoTitle.innerHTML = "Insertion Sort";
+});
+
+selectionSortSelectionButton.addEventListener("click", () => {
+  userRequestedStop = false;
+  initializeSelectionSort();
+  algoTitle.innerHTML = "Selection Sort";
 });
 
 window.onload = () => {

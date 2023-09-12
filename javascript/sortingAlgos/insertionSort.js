@@ -11,12 +11,12 @@ async function insertionSort() {
   for (i = 1; i < divs.length; i++) {
     currentDiv = divs[i];
     j = i - 1;
-
+    currentDiv.setAttribute("id", "selected");
     while (j >= 0 && divs[j].offsetHeight > currentDiv.offsetHeight) {
       if (userRequestedStop) {
         return;
       }
-      currentDiv.setAttribute("id", "comparing");
+
       divs[j].setAttribute("id", "comparing");
 
       await new Promise((resolve) => {
@@ -27,17 +27,18 @@ async function insertionSort() {
 
       await swapInsertion(divs[j + 1], divs[j]);
 
-      currentDiv.removeAttribute("id");
       divs[j].removeAttribute("id");
       divs = document.querySelectorAll(".data");
 
       j--;
     }
-    
+    currentDiv.removeAttribute("id");
   }
-  divs.forEach(insertionDiv => {
+  divs.forEach((insertionDiv) => {
     insertionDiv.setAttribute("id", "sorted");
   });
+
+  // add finishing flair
   for (let insertionDiv of divs) {
     await new Promise((resolve) => {
       setTimeout(() => {
