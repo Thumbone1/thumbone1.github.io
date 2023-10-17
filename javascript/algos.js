@@ -13,54 +13,18 @@ let userRequestedStop = false;
 let startButton;
 let resetButton;
 
-function initializeBubbleSort() {
+/**
+ * Initializes the passed sorting algo from ../sortingAlgos
+ * @param {function} sortingAlgo
+ */
+function initializeSortAlgo(sortingAlgo) {
   clearSortingDivs();
   createSortingDivs();
   clearControlButtons();
   createControlButtons();
   startButton.addEventListener("click", () => {
     userRequestedStop = false;
-    bubbleSort();
-    disallowSelectionButtons();
-    startButton.disabled = true;
-  });
-  resetButton.addEventListener("click", () => {
-    clearSortingDivs();
-    createSortingDivs();
-    allowSelectionButtons();
-    startButton.disabled = false;
-    userRequestedStop = true;
-  });
-}
-
-function initializeInsertionSort() {
-  clearSortingDivs();
-  createSortingDivs();
-  clearControlButtons();
-  createControlButtons();
-  startButton.addEventListener("click", () => {
-    userRequestedStop = false;
-    insertionSort();
-    disallowSelectionButtons();
-    startButton.disabled = true;
-  });
-  resetButton.addEventListener("click", () => {
-    clearSortingDivs();
-    createSortingDivs();
-    allowSelectionButtons();
-    startButton.disabled = false;
-    userRequestedStop = true;
-  });
-}
-
-function initializeSelectionSort() {
-  clearSortingDivs();
-  createSortingDivs();
-  clearControlButtons();
-  createControlButtons();
-  startButton.addEventListener("click", () => {
-    userRequestedStop = false;
-    selectionSort();
+    sortingAlgo();
     disallowSelectionButtons();
     startButton.disabled = true;
   });
@@ -85,15 +49,23 @@ function createControlButtons() {
   buttonContainer.appendChild(resetButton);
 }
 
+/**
+ * This function creates divs based on container width
+ * a couple magic numbers here that are commented
+ */
 function createSortingDivs() {
-  for (var i = 1; i < 30; i++) {
-    var newDiv = document.createElement("div");
+  const numDivs = divContainer.offsetWidth / 27; //27 looks right
+  for (let i = 0; i < numDivs; i++) {
+    const newDiv = document.createElement("div");
     newDiv.classList.add("data");
+    newDiv.style.width = `${divContainer.offsetWidth / (numDivs * 1.5)}px`; // 1.5 looks right
     newDiv.style.height = `${Math.max(
       20,
       Math.floor(Math.random() * divContainer.offsetHeight - 10)
     )}px`;
-    newDiv.style.transform = `translate(${i * 33}px)`;
+    newDiv.style.transform = `translateX(${
+      i * (divContainer.offsetWidth / numDivs)
+    }px)`;
     divContainer.appendChild(newDiv);
   }
   divs = document.querySelectorAll(".data");
@@ -121,22 +93,27 @@ function allowSelectionButtons() {
 
 bubbleSortSelectionButton.addEventListener("click", () => {
   userRequestedStop = false;
-  initializeBubbleSort();
+  initializeSortAlgo(bubbleSort);
   algoTitle.innerHTML = "Bubble Sort";
 });
 
 insertionSortSelectionButton.addEventListener("click", () => {
   userRequestedStop = false;
-  initializeInsertionSort();
+  initializeSortAlgo(insertionSort);
   algoTitle.innerHTML = "Insertion Sort";
 });
 
 selectionSortSelectionButton.addEventListener("click", () => {
   userRequestedStop = false;
-  initializeSelectionSort();
+  initializeSortAlgo(selectionSort);
   algoTitle.innerHTML = "Selection Sort";
 });
 
 window.onload = () => {
   createSortingDivs();
 };
+
+window.addEventListener("resize", () => {
+  clearSortingDivs();
+  createSortingDivs();
+});

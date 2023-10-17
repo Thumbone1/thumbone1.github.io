@@ -1,9 +1,3 @@
-/**
- * selection sort starts with the min value = arr[0]
- * it then goes through the entire array and if a value is < minValue
- *
- */
-
 async function selectionSort() {
   let i, j, minIndex;
 
@@ -26,7 +20,6 @@ async function selectionSort() {
         await new Promise((resolve) => setTimeout(resolve, animationTimer));
       }
 
-      
       divs[j].removeAttribute("id");
       //await new Promise((resolve) => setTimeout(resolve, animationTimer));
     }

@@ -1,10 +1,3 @@
-/**
- * async bubble sort algo visualizer after I found out
- * what async and promises are...also now that I understand
- * more about moving divs around
- *
- */
-
 async function insertionSort() {
   let i, j, currentDiv;
 

@@ -3,20 +3,8 @@
   margin: 0;
 }
 
-html {
-  background-image: linear-gradient(
-    180deg,
-    #f9de7dff,
-    #fba497ff,
-    #a2c8bdff,
-    #3cb3bbff,
-    #236484ff,
-    #0b3c5bff
-  );
-  height: 100vh;
-}
-
 body {
+  background-color: darkgrey;
   color: #0b3c5bff;
 }
 

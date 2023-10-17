@@ -25,19 +25,13 @@
 
 #div-container {
   position: relative;
-  border: solid pink 1px;
   border-radius: 20px;
-  width: 53vw;
+  width: 50vw;
   height: 50vh;
   margin: 0px 5vw 0px 5vw;
 }
-/* 
-#info-container {
-  margin: 0;
-} */
 
 .data {
-  width: 25px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -47,21 +41,10 @@
   transition: 0.35s all ease;
 }
 
-.data::before {
-  content: "😐";
-  margin-left: 2px;
-  margin-top: 5px;
-}
 
 #comparing {
   background-color: #0b3c5bff;
   border: solid black 1px;
-}
-
-#comparing::before {
-  content: "🤔";
-  margin-left: 2px;
-  margin-top: 5px;
 }
 
 #selected {
@@ -69,20 +52,8 @@
   border: solid black 1px;
 }
 
-#selected::before {
-  content: "😦";
-  margin-left: 2px;
-  margin-top: 5px;
-}
-
 #sorted {
   background-color: #f9de7dff;
-}
-
-#sorted::before {
-  content: "😀";
-  margin-left: 2px;
-  margin-top: 5px;
 }
 
 .text-button-container {
